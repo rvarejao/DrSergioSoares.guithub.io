@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Sérgio Soares · Psiquiatria</title>
+<meta name="description" content="Dr. Sérgio Soares — médico psiquiatra, atendimento presencial. Ansiedade, depressão e TDAH em adultos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-950:#141a2e;
+    --ink-900:#1c2340;
+    --ink-800:#2a3159;
+    --ink-700:#3a4372;
+    --paper:#f2ece0;
+    --paper-2:#e8dcc4;
+    --brass:#b98d4f;
+    --brass-light:#d9b273;
+    --moss:#5c6f5a;
+    --moss-dark:#3f4f3d;
+    --text:#1c2333;
+    --cream:#f8f3e7;
+    --line-dark: rgba(28,35,51,0.12);
+    --line-light: rgba(248,243,231,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--paper);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    line-height:1.12;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.7rem;
+    font-weight:500;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+  section{position:relative;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:20px 0;
+    transition:background .35s ease, padding .35s ease, box-shadow .35s ease;
+  }
+  header .wrap{display:flex; align-items:center; justify-content:space-between;}
+  header.scrolled{
+    background:rgba(20,26,46,0.94);
+    backdrop-filter:blur(10px);
+    padding:13px 0;
+    box-shadow:0 6px 24px rgba(0,0,0,0.15);
+  }
+  .brand{display:flex; flex-direction:column; color:var(--cream); font-family:'Newsreader',serif; font-weight:500; font-size:1.08rem;}
+  .brand span{font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--brass-light); font-weight:400; margin-top:2px;}
+  nav.links{display:flex; gap:30px; align-items:center;}
+  nav.links a{
+    color:var(--cream); opacity:0.8; font-size:0.88rem; font-weight:500;
+    transition:opacity .2s ease;
+  }
+  nav.links a:hover{opacity:1;}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:12px 22px; border-radius:3px;
+    font-weight:600; font-size:0.86rem;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    white-space:nowrap;
+  }
+  .btn-brass{
+    background:linear-gradient(135deg, var(--brass-light), var(--brass));
+    color:var(--ink-950);
+    box-shadow:0 6px 18px rgba(185,141,79,0.32);
+  }
+  .btn-brass:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(185,141,79,0.42);}
+  .btn-outline{border:1.5px solid rgba(248,243,231,0.45); color:var(--cream);}
+  .btn-outline:hover{background:rgba(248,243,231,0.08); border-color:var(--cream);}
+  .btn-line{border:1.5px solid var(--ink-800); color:var(--ink-900);}
+  .btn-line:hover{background:var(--ink-900); color:var(--cream);}
+  .btn-moss{background:var(--moss); color:var(--cream); box-shadow:0 6px 18px rgba(92,111,90,0.3);}
+  .btn-moss:hover{transform:translateY(-2px); background:var(--moss-dark);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:radial-gradient(ellipse 120% 75% at 50% -8%, #232c52 0%, var(--ink-900) 45%, var(--ink-950) 100%);
+    color:var(--cream);
+    padding:158px 0 0;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:50px; align-items:center;
+    padding-bottom:80px;
+  }
+  .hero .mono{color:var(--brass-light); margin-bottom:20px; display:flex; align-items:center; gap:10px;}
+  .hero .mono::before{content:''; width:26px; height:1px; background:var(--brass-light); display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.2rem, 4.2vw, 3.3rem);
+    margin-bottom:22px;
+    max-width:15ch;
+  }
+  .hero h1 em{font-style:italic; color:var(--brass-light); font-weight:500;}
+  .hero p.lead{font-size:1.05rem; color:rgba(248,243,231,0.78); max-width:46ch; margin-bottom:34px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+  .stat-strip{display:flex; gap:34px; flex-wrap:wrap; border-top:1px solid var(--line-light); padding-top:22px;}
+  .stat-strip div{display:flex; flex-direction:column;}
+  .stat-strip .num{font-family:'Newsreader',serif; font-size:1.4rem; font-weight:500; color:var(--cream);}
+  .stat-strip .lab{font-size:0.72rem; color:rgba(248,243,231,0.55); text-transform:uppercase; letter-spacing:0.08em; margin-top:3px;}
+
+  /* Signature visual: chaos -> order lines */
+  .hero-art{position:relative; height:400px;}
+  .lines-svg{width:100%; height:100%;}
+  .lines-svg path{
+    stroke-dasharray:600; stroke-dashoffset:600;
+    animation:draw 2.4s ease forwards;
+  }
+  .lines-svg path:nth-child(1){animation-delay:.1s;}
+  .lines-svg path:nth-child(2){animation-delay:.25s;}
+  .lines-svg path:nth-child(3){animation-delay:.4s;}
+  .lines-svg path:nth-child(4){animation-delay:.55s;}
+  .lines-svg path:nth-child(5){animation-delay:.7s;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @media (prefers-reduced-motion: reduce){
+    .lines-svg path{animation:none; stroke-dashoffset:0;}
+  }
+
+  .divider{width:100%; display:block; margin-top:-2px;}
+
+  /* ---------- About ---------- */
+  .about{background:var(--paper); padding:92px 0;}
+  .about-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px; align-items:start;}
+  .about .mono{color:var(--moss-dark); margin-bottom:16px;}
+  .about h2{font-size:clamp(1.7rem,2.8vw,2.2rem); color:var(--ink-900); max-width:12ch;}
+  .about-body p{color:#3f4658; margin-bottom:18px; font-size:1.02rem;}
+  .about-body p:last-child{margin-bottom:0;}
+  .signature-line{margin-top:28px; padding-top:24px; border-top:1px solid var(--line-dark); display:flex; gap:16px; align-items:center;}
+  .signature-line .name{font-family:'Newsreader',serif; font-weight:600; color:var(--ink-900); font-size:1.05rem;}
+  .signature-line .role{font-size:0.8rem; color:#6b7180;}
+
+  /* ---------- Focus areas ---------- */
+  .focus{background:var(--ink-950); color:var(--cream); padding:96px 0;}
+  .focus .mono{color:var(--brass-light); margin-bottom:14px;}
+  .focus h2{font-size:clamp(1.8rem,3.2vw,2.4rem); margin-bottom:12px; max-width:18ch;}
+  .focus > .wrap > p.lede{color:rgba(248,243,231,0.65); max-width:56ch; margin-bottom:52px; font-size:1.02rem;}
+  .focus-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  .fcard{
+    background:rgba(248,243,231,0.04); border:1px solid var(--line-light); border-radius:4px;
+    padding:34px 30px; transition:border-color .25s ease, background .25s ease, transform .25s ease;
+  }
+  .fcard:hover{border-color:rgba(185,141,79,0.5); background:rgba(248,243,231,0.07); transform:translateY(-3px);}
+  .fcard .num{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--brass-light); margin-bottom:16px; display:block;}
+  .fcard h3{font-size:1.3rem; margin-bottom:12px; font-weight:500;}
+  .fcard p{font-size:0.95rem; color:rgba(248,243,231,0.68);}
+
+  /* ---------- How it works ---------- */
+  .how{background:var(--paper-2); padding:96px 0;}
+  .how .mono{color:var(--moss-dark); margin-bottom:14px;}
+  .how h2{font-size:clamp(1.8rem,3vw,2.3rem); color:var(--ink-900); margin-bottom:52px; max-width:18ch;}
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .step{position:relative; padding-top:18px;}
+  .step .idx{font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--brass); border-top:2px solid var(--brass); padding-top:10px; display:block; margin-bottom:14px;}
+  .step h3{font-family:'Inter',sans-serif; font-weight:600; font-size:1.02rem; color:var(--ink-900); margin-bottom:8px;}
+  .step p{font-size:0.9rem; color:#4b5262;}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--paper); padding:96px 0;}
+  .faq .mono{color:var(--moss-dark); margin-bottom:14px;}
+  .faq h2{font-size:clamp(1.8rem,3vw,2.3rem); color:var(--ink-900); margin-bottom:44px; max-width:16ch;}
+  .faq-list{max-width:760px;}
+  details{border-top:1px solid var(--line-dark); padding:20px 0;}
+  details:last-child{border-bottom:1px solid var(--line-dark);}
+  summary{
+    cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;
+    font-family:'Newsreader',serif; font-size:1.08rem; font-weight:500; color:var(--ink-900);
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:'+'; font-family:'Inter',sans-serif; font-size:1.3rem; color:var(--brass); transition:transform .25s ease;}
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{margin-top:14px; color:#4b5262; font-size:0.96rem; max-width:60ch;}
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{
+    background:linear-gradient(135deg, var(--moss) 0%, var(--moss-dark) 100%);
+    color:var(--cream); padding:92px 0; text-align:center;
+  }
+  .final-cta .mono{color:rgba(248,243,231,0.75); justify-content:center;}
+  .final-cta .mono::before{display:none;}
+  .final-cta h2{font-size:clamp(1.8rem,3.4vw,2.6rem); max-width:18ch; margin:14px auto 18px;}
+  .final-cta p{max-width:50ch; margin:0 auto 32px; color:rgba(248,243,231,0.85); font-size:1.02rem;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink-950); color:rgba(248,243,231,0.6); padding:52px 0 26px; margin-top:0;}
+  .foot-grid{display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; padding-bottom:30px; border-bottom:1px solid var(--line-light);}
+  .foot-brand{color:var(--cream); font-family:'Newsreader',serif; font-size:1.08rem; font-weight:500; margin-bottom:8px;}
+  .foot-col p, .foot-col a{font-size:0.87rem; display:block; margin-bottom:8px; color:rgba(248,243,231,0.6);}
+  .foot-col a:hover{color:var(--brass-light);}
+  .foot-col h4{font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(248,243,231,0.38); margin-bottom:14px; font-weight:500; font-family:'IBM Plex Mono',monospace;}
+  .foot-bottom{padding-top:22px; font-size:0.78rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:rgba(248,243,231,0.4);}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 880px){
+    nav.links{display:none;}
+    .hero{padding-top:126px;}
+    .hero-grid{grid-template-columns:1fr; gap:8px; padding-bottom:56px;}
+    .hero-art{height:220px; order:-1; margin-bottom:16px;}
+    .about-grid{grid-template-columns:1fr; gap:30px;}
+    .focus-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr; gap:28px;}
+    .foot-grid{flex-direction:column; gap:26px;}
+  }
+  @media (max-width:520px){
+    .steps{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <div class="brand">Dr. Sérgio Soares<span>Psiquiatria</span></div>
+    <nav class="links">
+      <a href="#sobre">Sobre</a>
+      <a href="#atuacao">Atuação</a>
+      <a href="#atendimento">Atendimento</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a class="btn btn-brass" href="https://www.instagram.com/dr.sergiosoares/" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
+      Agendar
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <div class="mono">PSIQUIATRIA · ATENDIMENTO PRESENCIAL</div>
+      <h1>Uma mente mais organizada começa por ser <em>ouvido de verdade</em>.</h1>
+      <p class="lead">Acompanhamento psiquiátrico presencial com Dr. Sérgio Soares, para ansiedade, depressão e TDAH em adultos — consultas com tempo, escuta e cuidado humano.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-brass" href="https://www.instagram.com/dr.sergiosoares/" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
+          Agendar consulta pelo Instagram
+        </a>
+        <a class="btn btn-outline" href="https://www.instagram.com/dr.sergiosoares/" target="_blank" rel="noopener">Seguir @dr.sergiosoares</a>
+      </div>
+      <div class="stat-strip">
+        <div><span class="num">~2 mil</span><span class="lab">Seguidores no Instagram</span></div>
+        <div><span class="num">100%</span><span class="lab">Atendimento presencial</span></div>
+        <div><span class="num">Foco</span><span class="lab">Ansiedade, depressão e TDAH adulto</span></div>
+      </div>
+    </div>
+
+    <div class="hero-art reveal in">
+      <svg class="lines-svg" viewBox="0 0 460 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 60 Q60 20 40 90 T90 130 Q60 170 110 180 T140 240" stroke="#3a4372" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M20 140 Q80 100 50 180 T120 210 Q90 250 150 260" stroke="#5c6f5a" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+        <path d="M20 220 Q70 200 60 260 T140 290" stroke="#b98d4f" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <path d="M170 130 C230 130 260 130 440 130" stroke="#d9b273" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M170 210 C230 210 260 210 440 210" stroke="#d9b273" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.75"/>
+        <path d="M170 290 C230 290 260 290 440 290" stroke="#d9b273" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <svg class="divider" viewBox="0 0 1200 50" preserveAspectRatio="none" style="height:50px;">
+    <path d="M0,50 L0,32 C300,10 500,45 700,22 C900,4 1050,38 1200,15 L1200,50 Z" fill="#f2ece0"/>
+  </svg>
+</section>
+
+<section class="about" id="sobre">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="mono">SOBRE O ATENDIMENTO</div>
+      <h2>Rigor médico, com espaço para a pessoa inteira.</h2>
+    </div>
+    <div class="about-body reveal">
+      <p>Dr. Sérgio Soares é médico psiquiatra, com atendimento 100% presencial. As consultas são pensadas para que cada paciente seja ouvido com calma — sem pressa para rotular ou apenas prescrever.</p>
+      <p>Casado, pai e católico — como ele mesmo se descreve —, leva para o consultório um olhar atento à pessoa por trás do diagnóstico: a rotina, a família, os valores de quem está ali. A proposta é simples: ajudar você a entender o que sente e encontrar, com acompanhamento médico responsável, um caminho mais leve.</p>
+      <div class="signature-line">
+        <div>
+          <div class="name">Dr. Sérgio Soares</div>
+          <div class="role">Médico Psiquiatra · @dr.sergiosoares</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="focus" id="atuacao">
+  <div class="wrap">
+    <div class="mono reveal">ÁREAS DE ATUAÇÃO</div>
+    <h2 class="reveal">Cuidado focado no que mais pesa no dia a dia</h2>
+    <p class="lede reveal">Dois eixos guiam boa parte do acompanhamento: a mente que vive em alerta e a mente que tem dificuldade em organizar o próprio foco.</p>
+    <div class="focus-grid">
+      <div class="fcard reveal">
+        <span class="num">01</span>
+        <h3>Ansiedade e depressão</h3>
+        <p>Acompanhamento para quem convive com preocupação excessiva, cansaço emocional, tristeza persistente ou oscilações de humor que atrapalham a rotina — com escuta, avaliação médica cuidadosa e acompanhamento contínuo.</p>
+      </div>
+      <div class="fcard reveal">
+        <span class="num">02</span>
+        <h3>TDAH em adultos</h3>
+        <p>Investigação e acompanhamento de sintomas de desatenção, inquietação e dificuldade de organização que muitas vezes só ganham nome — e tratamento adequado — na vida adulta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="atendimento">
+  <div class="wrap">
+    <div class="mono reveal">COMO FUNCIONA</div>
+    <h2 class="reveal">Do primeiro contato à primeira consulta</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="idx">01</span>
+        <h3>Chame no Instagram</h3>
+        <p>Envie uma mensagem direta para @dr.sergiosoares contando, em poucas linhas, o que te trouxe até aqui.</p>
+      </div>
+      <div class="step reveal">
+        <span class="idx">02</span>
+        <h3>Combine o horário</h3>
+        <p>O agendamento da consulta presencial é feito diretamente pela conversa no Instagram.</p>
+      </div>
+      <div class="step reveal">
+        <span class="idx">03</span>
+        <h3>Primeira consulta</h3>
+        <p>Um encontro para escutar sua história com calma, sem pressa para rotular ou apenas prescrever.</p>
+      </div>
+      <div class="step reveal">
+        <span class="idx">04</span>
+        <h3>Acompanhamento</h3>
+        <p>A partir daí, o cuidado continua em consultas de retorno, no ritmo que fizer sentido para você.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="mono reveal">DÚVIDAS FREQUENTES</div>
+    <h2 class="reveal">Perguntas antes de agendar</h2>
+    <div class="faq-list">
+      <details class="reveal">
+        <summary>O atendimento é presencial ou online?</summary>
+        <p>O atendimento é presencial.</p>
+      </details>
+      <details class="reveal">
+        <summary>Como faço para agendar uma consulta?</summary>
+        <p>Pelo Instagram: envie uma mensagem direta para @dr.sergiosoares para combinar o melhor horário.</p>
+      </details>
+      <details class="reveal">
+        <summary>Atende convênio médico ou é só particular?</summary>
+        <p>Convênios, valores e demais detalhes são combinados diretamente na conversa inicial pelo Instagram.</p>
+      </details>
+      <details class="reveal">
+        <summary>Quais assuntos costuma atender?</summary>
+        <p>O acompanhamento tem foco especial em ansiedade, depressão e TDAH em adultos, além de outras questões de saúde mental trazidas em consulta.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <div class="mono reveal">PRÓXIMO PASSO</div>
+    <h2 class="reveal">Dê o primeiro passo para organizar a mente.</h2>
+    <p class="reveal">Envie uma mensagem pelo Instagram e combine sua consulta presencial com Dr. Sérgio Soares.</p>
+    <a class="btn btn-brass reveal" href="https://www.instagram.com/dr.sergiosoares/" target="_blank" rel="noopener">Agendar consulta pelo Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col" style="max-width:280px;">
+        <div class="foot-brand">Dr. Sérgio Soares</div>
+        <p>Médico Psiquiatra · Atendimento presencial. Ansiedade, depressão e TDAH em adultos.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <a href="https://www.instagram.com/dr.sergiosoares/" target="_blank" rel="noopener">Instagram @dr.sergiosoares</a>
+        <p>Agendamento via mensagem direta no Instagram.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Dr. Sérgio Soares — Psiquiatria</span>
+      <span>Página não oficial, criada a partir de informações públicas do perfil @dr.sergiosoares</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
